@@ -64,11 +64,13 @@ describe('items', () => {
       description: 'apples',
       qty: 6,
       user_id: user.id,
+      bought: false,
     });
     await Item.insert({
       description: 'eggs',
       qty: 12,
       user_id: user2.id,
+      bought: false,
     });
     const resp = await agent.get('/api/v1/items');
     expect(resp.status).toEqual(200);
@@ -87,6 +89,7 @@ describe('items', () => {
       description: 'apples',
       qty: 6,
       user_id: user.id,
+      bought: false,
     });
     const resp = await agent
       .put(`/api/v1/items/${item.id}`)
